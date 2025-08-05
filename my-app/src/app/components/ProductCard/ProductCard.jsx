@@ -5,16 +5,15 @@ import styles from './ProductCard.module.css';
 export default function ProductCard({ product }) {
   return (
     <div className={styles.card}>
-      <Image
-        src={product.image}
-        alt={product.title}
-        width={200}
-        height={200}
-        loading="lazy"
-      />
-      <h2>{product.title}</h2>
-      <p>{product.price}</p>
-      <small>{product.description}</small>
+      
+      <Image 
+  src="/iphone15.jpg" 
+  alt="Logo" 
+  priority 
+  width={100} 
+  height={50} 
+/>
+
     </div>
   );
 }

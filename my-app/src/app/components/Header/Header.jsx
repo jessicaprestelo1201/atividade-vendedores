@@ -1,22 +1,16 @@
-'use client';
 import styles from './Header.module.css';
-import Image from 'next/image';
+
+export default function Header({title, subtitle, totalProducts}) {
+    const totalProductsExibido = totalProducts ? `📊 Total de produtos: ${totalProducts}` : "Nenhum produto adicionado";
 
 
-export default function Header({ title, subtitle }) {
-  return (
-    <header className={styles.header}>
-      <Image
-        src="/images/logo.png"
-        alt="Logo"
-        width={60}
-        height={60}
-        priority={true}
-      />
-      <div>
-        <h1>{title}</h1>
-        <p>{subtitle}</p>
-      </div>
-    </header>
-  );
+
+    return (
+        <div className={styles.header}>
+            <h4>{title}</h4>
+            <p>{subtitle}</p>
+            <p>{totalProductsExibido}</p>
+            <hr />
+        </div>
+    );
 }

@@ -1,35 +1,31 @@
-'use client';
+"use client";
 
+import { useState } from 'react';
+import Header from './components/Header/Header';
+import ProductCard from './components/ProductCard/ProductCard';
 
-import { useState, useEffect } from 'react';
-import ProductCard from '../app/components/ProductCard/ProductCard';
-import styles from './page.module.css';
-import productsData from '../app/data/products';
-
-
-export default function Home() {
-  const [products, setProducts] = useState([]);
-
-
-  useEffect(() => {
-    // Simulação de carregamento
-    setTimeout(() => {
-      setProducts(productsData);
-    }, 1000);
-  }, []);
-
+export default function HomePage() {
+  const [header, setHeader] = useState({
+    
+    title: '🛒 Loja de Eletrônicos',
+    subtitle: 'Os melhores produtos com os melhores preços!',
+    totalProducts: 4
+  });
 
   return (
-    <main className={styles.main}>
-      <h2>Produtos ({products.length})</h2>
-      <div className={styles.grid}>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-    </main>
+    <div>
+      <Header
+        title={header.title}
+        subtitle={header.subtitle}
+        totalProducts={header.totalProducts}
+      />
+      <ProductCard />
+      <ProductCard />
+
+    </div>
   );
 }
+
 
 
 
